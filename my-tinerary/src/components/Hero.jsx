@@ -6,6 +6,7 @@ const Hero = () => {
       <div className="bg-black bg-opacity-50 h-full flex flex-col justify-center items-center text-center">
         <h1 className="text-5xl md:text-7xl font-bold mb-4">Explora el Mundo con MY TINERARY</h1>
         <p className="text-lg md:text-2xl mb-6">Descubre las mejores ciudades y planea tu aventura perfecta.</p>
+        <p className="text-lg md:text-2xl mb-6">¿Listo para tu próxima gran aventura? Con MY TINERARY, explora destinos increíbles, descubre joyas ocultas y crea recuerdos inolvidables. ¡Tu viaje perfecto comienza aquí!</p>
         <a href="/cities" className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-md transition duration-300">
           Explorar ciudades
         </a>

@@ -1,48 +1,23 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
-import Hero from './components/Hero.jsx';
 import Footer from './components/Footer.jsx';
-import Carousel from './components/Carousel.jsx';
+import Home from './components/pages/Home.jsx';  // Página de inicio
+import CitiesPage from './components/pages/CitiesPage.jsx';  // Página Cities
 
-function App() {
-  const cities = [
-    {
-      id: 1,
-      name: 'París',
-      description: 'La ciudad del amor y la torre Eiffel.',
-      imageUrl: 'https://images5.alphacoders.com/456/456536.jpg',
-    },
-    {
-      id: 2,
-      name: 'Nueva York',
-      description: 'La Gran Manzana, hogar de Times Square y Central Park.',
-      imageUrl: 'https://images5.alphacoders.com/456/456536.jpg',
-    },
-    {
-      id: 3,
-      name: 'Tokio',
-      description: 'Una ciudad vibrante llena de cultura y tecnología.',
-      imageUrl: 'https://images5.alphacoders.com/456/456536.jpg',
-    },
-    // Agrega más ciudades aquí
-  ];
-
+const App = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-
-      <div className="flex-grow">
-        <Hero /> {/* Aquí colocamos el Hero */}
+    <Router>
+      <div className="min-h-screen bg-gray-100">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cities" element={<CitiesPage />} />
+        </Routes>
+        <Footer />
       </div>
-      
-      <div className="flex-grow py-10">
-        <h1 className="text-4xl font-bold text-center mb-6">Ciudades para Visitar</h1>
-        <Carousel cities={cities} />
-      </div>
-      
-      <Footer />
-    </div>
+    </Router>
   );
-}
+};
 
 export default App;

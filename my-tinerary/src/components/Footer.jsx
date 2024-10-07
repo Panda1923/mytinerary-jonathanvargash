@@ -9,13 +9,6 @@ const Footer = () => {
           <h1 className="text-2xl font-bold">MY TINERARY</h1>
         </div>
 
-        {/* Enlaces */}
-        <div className="flex space-x-6 mb-4 md:mb-0">
-          <a href="/home" className="hover:underline">Home</a>
-          <a href="/cities" className="hover:underline">Cities</a>
-          <a href="/login" className="hover:underline">Login</a>
-        </div>
-
         {/* Redes sociales */}
         <div className="flex space-x-4">
           <a href="https://facebook.com" target="_blank" rel="noreferrer">
@@ -27,6 +20,7 @@ const Footer = () => {
           <a href="https://instagram.com" target="_blank" rel="noreferrer">
             <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" className="w-6 h-6" />
           </a>
+          
         </div>
       </div>
 

@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
-import CityCard from './CityCard';
+import React, { useState, useEffect } from 'react';
+import CityCard from './CityCard.jxs';
 
 const Carousel = ({ cities }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Función para mover automáticamente el carrusel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000); // Cambiará de slide cada 3 segundos
+    return () => clearInterval(interval); // Limpiamos el intervalo al desmontar el componente
+  }, [currentIndex]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % cities.length);

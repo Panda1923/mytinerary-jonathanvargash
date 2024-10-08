@@ -26,7 +26,7 @@ const Footer = () => {
 
       {/* Derechos reservados */}
       <div className="mt-4 text-center">
-        <p>&copy; 2024 MY TINERARY. Todos los derechos reservados.</p>
+        <p>&copy; 2024 MY TINERARY. All rights reserved.</p>
       </div>
     </footer>
   );

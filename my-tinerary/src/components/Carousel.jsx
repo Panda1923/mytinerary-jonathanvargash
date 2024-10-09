@@ -1,36 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import CityCard from './CityCard.jxs';
+import CityCard from './CityCard.jsx';
 
 const Carousel = ({ cities }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleCards, setVisibleCards] = useState(4); // Número de tarjetas visibles a la vez
 
-  // Función para mover automáticamente el carrusel
+  // Mueve automáticamente el carrusel cada 3 segundos
   useEffect(() => {
-    const interval = setInterval(() => {
+    const intervalId = setInterval(() => {
       nextSlide();
-    }, 3000); // Cambiará de slide cada 3 segundos
-    return () => clearInterval(interval); // Limpiamos el intervalo al desmontar el componente
+    }, 3000); // Cada 3 segundos se mueve al siguiente slide
+    return () => clearInterval(intervalId); // Limpiamos el intervalo al desmontar el componente
   }, [currentIndex]);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % cities.length);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === cities.length - visibleCards ? 0 : prevIndex + 1
+    );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? cities.length - 1 : prevIndex - 1
+      prevIndex === 0 ? cities.length - visibleCards : prevIndex - 1
     );
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto">
+    <div className="relative w-full max-w-5xl mx-auto">
       <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-500"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          style={{ transform: `translateX(-${currentIndex * (100 / visibleCards)}%)` }}
         >
           {cities.map((city) => (
-            <div key={city.id} className="min-w-full flex justify-center">
+            <div key={city.id} className="min-w-[25%] flex justify-center"> {/* Cambié a 25% para 4 tarjetas visibles */}
               <CityCard city={city} />
             </div>
           ))}

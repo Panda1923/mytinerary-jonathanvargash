@@ -1,23 +1,43 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar.jsx';
-import Footer from './components/Footer.jsx';
-import Home from './components/pages/Home.jsx';  // Página de inicio
-import CitiesPage from './components/pages/CitiesPage.jsx';  // Página Cities
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout.jsx";
+import Home from "./components/pages/Home.jsx"; // Página de inicio
+import CitiesPage from "./components/pages/CitiesPage.jsx"; // Página Cities
+import Login from './components/pages/Login.jsx'; // Asegúrate de que la ruta sea la correcta
+
 
 const App = () => {
   return (
+    
     <Router>
-      <div className="min-h-screen bg-gray-100">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cities" element={<CitiesPage />} />
-        </Routes>
-        <Footer />
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/cities"
+          element={
+            <Layout>
+              <CitiesPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Layout>
+              <Login />
+            </Layout>
+          }
+        />
+      </Routes>
     </Router>
   );
-};
+}
 
 export default App;

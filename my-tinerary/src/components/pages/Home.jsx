@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from '../Carousel.jsx';
-import citiesData from '../citiesData.js'; // Asegúrate de tener los datos de las ciudades
+import citiesData from '../citiesData.js'; 
 import Hero from '../Hero.jsx'
 
 const Home = () => {
